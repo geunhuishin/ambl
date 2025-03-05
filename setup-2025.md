@@ -1,5 +1,6 @@
-### mac for dev. (2025-03-04)
-
+### Computing Environment Setup for MacOS User (2025-03-04)
+> This document is for the MacOS user who wants to set up the computing environment for the first time. The document will guide you through the process of setting up the terminal, git, and gh.
+> (Basically only me and professor @ ambl)
 #### set-up
 
 1. download below
@@ -111,7 +112,7 @@
    brew install gh
    ```
    ```gh auth login``` 
-   - generated a new SSH key to add to my github account: geunhuiatyimlabkaist
+   - generate a new SSH key to add to github account
 
 ---
 
