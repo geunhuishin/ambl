@@ -1,7 +1,9 @@
-### Computing Environment Setup for MacOS User (2025-03-04)
+Computing Environment Setup for MacOS User (2025-03-04)
+===================
+
 > This document is for the MacOS user who wants to set up the computing environment for the first time. The document will guide you through the process of setting up the terminal, git, and gh.
 > (Basically only me and professor @ ambl)
-#### set-up
+### Set-up
 
 1. download below
    - [iterm2](https://iterm2.com)
@@ -116,7 +118,7 @@
 
 ---
 
-#### references
+### References
 1. [setting up a brand new mac for development](https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/)
 2. [iTerm2-Oh-My-ZSH-터미널-커스텀-하기](https://velog.io/@uoayop/iTerm2-Oh-My-ZSH-터미널-커스텀-하기)
 3. [Mac-Terminal-theme-꾸미기](https://velog.io/@imysh578/Mac-Terminal-theme-꾸미기)
