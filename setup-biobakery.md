@@ -1,4 +1,4 @@
-BioBakery Setup Guide using Conda
+BioBakery Setup Guide using Conda (아직 작성 중)
 ===================
 
 > This document is for the setup of the bioBakery Workflows. I've encountered some errors during the installation process and added the solutions to them.
@@ -57,6 +57,8 @@ metaphlan --install
 ```
 이후 `biobakery_workflows_databases --install wmgx`를 다시 실행.
 
+* **추가 업데이트:** metaphlan 4.1의 경우, anaconda로 metaphlan을 설치한 경우, 데이터베이스의 설치 위치를 env 내부가 아닌, 다른 디렉토리에 저장할 것을 권장함.
+
 3.  ```데이터베이스 다운로드 중 터미널 멈춤 현상```
     - 일부 데이터베이스 다운로드 과정에서 터미널이 멈추는 경우 발생. 이를 해결하기 위해 수동 다운로드 진행.
 
@@ -88,12 +90,17 @@ metaphlan --install
    ```sh
    kneaddata_database --download human_genome bowtie2 $INSTALL_LOCATION
    ```
-   - 📂 저장 위치: `$INSTALL_LOCATION/kneaddata/human_genome/`
+   - 📂 저장 위치: `$INSTALL_LOCATION/kneaddata_db_human_genome/`
+   - If installed manually using `wget`, the database should be extracted to the same location.
+   - [다운로드 주소](http://huttenhower.sph.harvard.edu/kneadData_databases/Homo_sapiens_hg38_transcriptome_Bowtie2_v0.1.tar.gz)
+     ```sh
+     tar -xvzf Homo_sapiens_hg38_transcriptome_Bowtie2_v0.1.tar.gz
+     ```
 
 
 5. **StrainPhlAn Markers Database** (Strain-level profiling을 위한 마커 유전자)
    ```sh
-   bowtie2-inspect <strainphlan_db> > $INSTALL_LOCATION/strainphlan/all_markers.fasta
+   bowtie2-inspect <strainphlan_db> > $INSTALL_LOCATION/strainphlan_db_markers/
    ```
    - 📂 저장 위치: `$INSTALL_LOCATION/strainphlan/`
 
@@ -104,13 +111,13 @@ metaphlan --install
 
 1. **Kneaddata rRNA Database** (Ribosomal RNA 제거)
    ```sh
-   kneaddata_database --download ribosomal_RNA bowtie2 $INSTALL_LOCATION
+   kneaddata_database --download ribosomal_RNA bowtie2 /home/geunhui/biobakery_workflows_databases/kneaddata/kneaddata_db_rrna
    ```
-   - 📂 저장 위치: `$INSTALL_LOCATION/kneaddata/ribosomal_RNA/`
+   - [http:// 다운로드 주소](http://huttenhower.sph.harvard.edu/kneadData_databases/Homo_sapiens_hg38_transcriptome_Bowtie2_v0.1.tar.gz)
 
 2. **Kneaddata Human Transcriptome Database** (Human mRNA 제거)
    ```sh
-   kneaddata_database --download human_transcriptome bowtie2 $INSTALL_LOCATION
+   kneaddata_database --download human_transcriptome bowtie2 /home/geunhui/biobakery_workflows_databases/kneaddata/kneaddata_db_human_metatranscriptome
    ```
    - 📂 저장 위치: `$INSTALL_LOCATION/kneaddata/human_transcriptome/`
 
@@ -124,12 +131,11 @@ metaphlan --install
 ~/biobakery_workflows_databases/
 ├── humann/
 │   ├── utility_mapping/
-│   ├── chocophlan/
-│   ├── uniref/
-├── kneaddata/
-│   ├── human_genome/
-│   ├── ribosomal_RNA/   (wmgx_wmtx 추가)
-│   ├── human_transcriptome/   (wmgx_wmtx 추가)
-├── strainphlan/
+├── kneaddata_db_human_genome/
+│  
+│   ├── kneaddata_db_human_metatranscriptome/
+│   ├── kneaddata_db_rrna/
+├── strainphlan_db_markers/
+├── strainphlan_db_reference/
 ```
 
